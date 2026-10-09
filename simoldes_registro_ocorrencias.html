@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro de Ocorrências | Simoldes</title>
+<style>
+:root{--navy:#14243a;--blue:#2459a9;--blue2:#eaf1fc;--ink:#1e293b;--muted:#64748b;--line:#e2e8f0;--bg:#f4f7fb;--white:#fff;--green:#16845b;--amber:#a86309;--red:#bd3434;--shadow:0 8px 28px rgba(20,36,58,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer}.topbar{background:var(--navy);color:white;padding:18px 24px}.topbar-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:42px;height:42px;border-radius:12px;background:#fff;color:var(--navy);display:grid;place-items:center;font-weight:900;font-size:20px}.brand h1{font-size:18px;margin:0}.brand p{font-size:12px;color:#cbd5e1;margin:2px 0 0}.top-actions{display:flex;gap:8px;flex-wrap:wrap}.container{max-width:1180px;margin:26px auto;padding:0 20px}.intro{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:22px}.intro h2{margin:0;font-size:27px;letter-spacing:-.5px}.intro p{margin:6px 0 0;color:var(--muted);max-width:700px}.badge{display:inline-flex;align-items:center;gap:7px;background:#e7f7ef;color:#13744f;padding:7px 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}.dot{width:7px;height:7px;border-radius:50%;background:currentColor}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}.stat,.panel,.occurrence{background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.stat{padding:17px 18px}.stat-label{font-size:12px;color:var(--muted);font-weight:650}.stat-value{font-size:27px;font-weight:800;margin-top:4px}.layout{display:grid;grid-template-columns:390px minmax(0,1fr);gap:20px;align-items:start}.panel{padding:20px}.panel h3{margin:0 0 4px;font-size:17px}.sub{font-size:13px;color:var(--muted);margin:0 0 18px}.field{margin-bottom:14px}.field label{display:block;font-size:12px;font-weight:750;margin-bottom:6px;color:#344256}.field input,.field select,.field textarea{width:100%;border:1px solid #cfd8e5;background:#fff;border-radius:9px;padding:10px 11px;outline:none;color:var(--ink)}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #2459a91a}.field textarea{min-height:112px;resize:vertical}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.upload{border:1.5px dashed #b8c7da;background:#f8faff;border-radius:11px;padding:14px;text-align:center}.upload strong{display:block;font-size:13px}.upload small{color:var(--muted);font-size:11px}.upload input{margin-top:9px;font-size:12px;max-width:100%}.preview{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.preview img{width:68px;height:68px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}.btn{border:1px solid transparent;border-radius:9px;padding:10px 13px;font-weight:750;font-size:13px;display:inline-flex;justify-content:center;align-items:center;gap:7px}.btn-primary{background:var(--blue);color:white}.btn-primary:hover{background:#194886}.btn-light{background:white;color:var(--ink);border-color:#cbd5e1}.btn-light:hover{background:#f8fafc}.btn-danger{background:#fff0f0;color:var(--red);border-color:#ffd6d6}.btn-block{width:100%}.form-actions{display:flex;gap:8px}.form-actions>*{flex:1}.toolbar{display:flex;gap:10px;margin-bottom:14px;align-items:center;flex-wrap:wrap}.search{flex:1;min-width:160px}.search input{width:100%;border:1px solid #cfd8e5;border-radius:9px;padding:10px 12px;background:white}.toolbar select{border:1px solid #cfd8e5;border-radius:9px;padding:10px;background:white}.list-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.list-head h3{margin:0}.count{color:var(--muted);font-size:12px}.occurrences{display:grid;gap:12px}.occurrence{padding:16px;box-shadow:none}.occ-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.occ-title{font-weight:800;font-size:15px;margin:0 0 5px;overflow-wrap:anywhere}.meta{display:flex;gap:7px;flex-wrap:wrap;color:var(--muted);font-size:11px}.pill{border-radius:999px;padding:4px 8px;font-size:10px;font-weight:800;white-space:nowrap}.p-aberto{background:#fff4dc;color:#94600a}.p-andamento{background:#e8f1ff;color:#2459a9}.p-resolvido{background:#e5f7ed;color:#16724e}.p-critica{background:#ffe8e8;color:#b42323}.p-alta{background:#fff0e2;color:#a4530b}.p-media{background:#eaf1fc;color:#2459a9}.p-baixa{background:#edf2f7;color:#526174}.occ-desc{white-space:pre-wrap;overflow-wrap:anywhere;margin:12px 0;color:#425168;font-size:13px}.thumbs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.thumbs img{width:82px;height:66px;object-fit:cover;border-radius:8px;border:1px solid var(--line);cursor:zoom-in;transition:transform .15s,box-shadow .15s}.thumbs img:hover{transform:scale(1.04);box-shadow:0 4px 12px rgba(20,36,58,.18)}.occ-footer{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;border-top:1px solid #edf1f5;padding-top:11px}.occ-actions{display:flex;gap:6px;flex-wrap:wrap}.small-btn{border:1px solid var(--line);background:#fff;border-radius:7px;padding:6px 9px;font-size:11px;font-weight:750}.empty{padding:35px 15px;text-align:center;border:1px dashed #cbd5e1;border-radius:12px;color:var(--muted);background:#fbfdff}.empty b{display:block;color:var(--ink);margin-bottom:5px}.notice{margin-top:16px;padding:12px 14px;background:#fff8e8;border:1px solid #f2dfb0;border-radius:10px;font-size:12px;color:#79551c}.notice strong{display:block;margin-bottom:3px}.footer{max-width:1180px;margin:20px auto 30px;padding:0 20px;color:#8190a3;font-size:11px}.modal-backdrop{position:fixed;inset:0;background:#0c1728a8;display:none;align-items:center;justify-content:center;padding:18px;z-index:5}.modal{width:min(600px,100%);background:white;border-radius:16px;padding:22px;max-height:90vh;overflow:auto}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.modal-head h3{margin:0}.close{border:0;background:#eef2f7;border-radius:8px;padding:6px 10px}.modal p{font-size:13px;color:var(--muted)}.modal code{background:#f1f5f9;padding:2px 4px;border-radius:4px;overflow-wrap:anywhere}.github-status{font-size:12px;color:var(--muted);margin-top:10px}.github-status.ok{color:var(--green)}.github-status.err{color:var(--red)}.hidden{display:none!important}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#14243a;color:white;padding:11px 16px;border-radius:10px;box-shadow:var(--shadow);font-size:13px;z-index:10;max-width:90%;text-align:center}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.intro{flex-direction:column}.topbar-inner{align-items:flex-start;flex-direction:column}.top-actions{width:100%}}@media(max-width:520px){.container{padding:0 12px;margin-top:18px}.topbar{padding:14px}.panel{padding:15px}.stats{gap:8px}.stat{padding:12px}.stat-value{font-size:23px}.two{grid-template-columns:1fr}.occ-top{flex-direction:column}.top-actions .btn{flex:1}.intro h2{font-size:23px}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+  <div class="brand"><div class="brand-mark">S</div><div><h1>Simoldes · Registro de Ocorrências</h1><p>Central pessoal de falhas, evidências e melhorias</p></div></div>
+  <div class="top-actions">
+    <button class="btn btn-light" id="githubOpen">☁ Configurar GitHub</button>
+    <button class="btn btn-light" id="exportBtn">⇩ Exportar ocorrências</button>
+  </div>
+</div></header>
+<main class="container">
+  <section class="intro"><div><h2>Organize problemas. Registre evidências.</h2><p>Registre falhas do sistema, anexe capturas de tela e acompanhe o que precisa ser corrigido ou melhorado. Este protótipo começa como um registro pessoal.</p></div><span class="badge"><span class="dot"></span><span id="storageLabel">Salvamento neste navegador</span></span></section>
+  <section class="stats">
+    <div class="stat"><div class="stat-label">Total de registros</div><div class="stat-value" id="statTotal">0</div></div>
+    <div class="stat"><div class="stat-label">Abertos</div><div class="stat-value" id="statOpen">0</div></div>
+    <div class="stat"><div class="stat-label">Em andamento</div><div class="stat-value" id="statProgress">0</div></div>
+    <div class="stat"><div class="stat-label">Resolvidos</div><div class="stat-value" id="statDone">0</div></div>
+  </section>
+  <section class="layout">
+    <aside class="panel">
+      <h3 id="formHeading">＋ Nova ocorrência</h3><p class="sub">Descreva o problema com detalhes suficientes para reproduzi-lo.</p>
+      <form id="occForm">
+        <input type="hidden" id="editId">
+        <div class="field"><label for="title">Título da ocorrência *</label><input id="title" required maxlength="140" placeholder="Ex.: Quantidade não atualiza ao confirmar"></div>
+        <div class="two">
+          <div class="field"><label for="area">Área / processo</label><select id="area"><option>Produção</option><option>Logística</option><option>Manutenção</option><option>Outro</option></select></div>
+          <div class="field"><label for="type">Tipo</label><select id="type"><option>Erro no sistema</option><option>Melhoria sugerida</option><option>Dúvida operacional</option><option>Acesso / permissão</option><option>Desempenho</option></select></div>
+        </div>
+        <div class="field hidden" id="sectorField"><label for="sector" id="sectorLabel">Setor *</label><select id="sector"></select></div>
+        <div class="two">
+          <div class="field"><label for="priority">Prioridade</label><select id="priority"><option>Baixa</option><option selected>Média</option><option>Alta</option><option>Crítica</option></select></div>
+          <div class="field"><label for="status">Status</label><select id="status"><option>Aberto</option><option>Em andamento</option><option>Resolvido</option></select></div>
+        </div>
+        <div class="field"><label for="description">Descrição *</label><textarea id="description" required placeholder="O que aconteceu? Em qual tela ou etapa? O que você esperava que acontecesse?"></textarea></div>
+        <div class="field"><label for="steps">Passos para reproduzir (opcional)</label><textarea id="steps" style="min-height:72px" placeholder="1. Abrir a tela...&#10;2. Informar...&#10;3. Clicar em..."></textarea></div>
+        <div class="field"><label for="evidence">Imagens / capturas de tela</label><div class="upload"><strong>📷 Adicione evidências visuais</strong><small>JPG, PNG ou WebP. Redimensionadas para facilitar o armazenamento.</small><input id="evidence" type="file" accept="image/*" multiple><div class="preview" id="preview"></div></div></div>
+        <div class="form-actions"><button class="btn btn-primary" type="submit" id="saveBtn">Salvar ocorrência</button><button class="btn btn-light hidden" type="button" id="cancelEdit">Cancelar</button></div>
+      </form>
+      <div class="notice"><strong>Privacidade e uso</strong>Evite incluir dados pessoais, senhas ou informações confidenciais nas descrições e imagens. Faça registros apenas para uso autorizado na empresa.</div>
+    </aside>
+    <section>
+      <div class="toolbar"><div class="search"><input id="search" placeholder="⌕ Buscar por título, descrição ou área..."></div><select id="filterStatus"><option value="">Todos os status</option><option>Aberto</option><option>Em andamento</option><option>Resolvido</option></select><select id="filterPriority"><option value="">Todas prioridades</option><option>Crítica</option><option>Alta</option><option>Média</option><option>Baixa</option></select></div>
+      <div class="list-head"><h3>Minhas ocorrências</h3><span class="count" id="resultCount">0 registros</span></div>
+      <div class="occurrences" id="occurrences"></div>
+    </section>
+  </section>
+</main>
+<div class="footer">Protótipo demonstrativo · Os registros locais ficam neste navegador. Configure um repositório GitHub privado para sincronização entre dispositivos.</div>
+
+<div class="modal-backdrop" id="githubModal"><div class="modal">
+  <div class="modal-head"><h3>☁ Sincronização com GitHub</h3><button class="close" id="closeGithub">✕</button></div>
+  <p>Opcional: sincronize registros e imagens em um repositório GitHub. Para manter os dados privados, use um repositório <b>privado</b> dedicado a este protótipo.</p>
+  <div class="field"><label for="ghOwner">Usuário ou organização GitHub</label><input id="ghOwner" placeholder="seu-usuario"></div>
+  <div class="field"><label for="ghRepo">Nome do repositório privado</label><input id="ghRepo" placeholder="simoldes-registros"></div>
+  <div class="field"><label for="ghBranch">Branch</label><input id="ghBranch" value="main"></div>
+  <div class="field"><label for="ghToken">Personal Access Token (fine-grained)</label><input id="ghToken" type="password" autocomplete="off" placeholder="github_pat_..."></div>
+  <p><b>Permissão necessária:</b> acesso somente ao repositório escolhido, com permissão de conteúdo (Contents: Read and write). O token é mantido apenas na sessão desta página e não é incluído no arquivo exportado. Não use esta opção em computador compartilhado; para uso corporativo, o ideal é um backend autenticado aprovado pela TI.</p>
+  <div class="form-actions"><button class="btn btn-light" id="ghDisconnect">Desconectar</button><button class="btn btn-primary" id="ghSync">Sincronizar agora</button></div>
+  <div class="github-status" id="ghStatus">Ainda não conectado.</div>
+</div></div>
+<div class="toast hidden" id="toast"></div>
+<script>
+/* ===== Visualizador de imagens ampliadas (usado no app e no relatório exportado) ===== */
+function installLightbox(){
+ if(document.querySelector('.lb'))return;
+ const css='.lb{position:fixed;inset:0;z-index:50;background:rgba(8,15,28,.94);display:none;flex-direction:column}'+
+ '.lb.open{display:flex}'+
+ '.lb-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;color:#e2e8f0;font:13px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}'+
+ '.lb-cap{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}'+
+ '.lb-btns{display:flex;gap:6px;flex-shrink:0}'+
+ '.lb button{background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:8px;padding:8px 12px;font:600 13px system-ui,-apple-system,"Segoe UI",sans-serif;cursor:pointer}'+
+ '.lb button:hover{background:rgba(255,255,255,.26)}'+
+ '.lb-stage{flex:1;overflow:auto;display:flex;padding:0 12px 16px;-webkit-overflow-scrolling:touch}'+
+ '.lb-stage img{margin:auto;max-width:100%;max-height:calc(100vh - 80px);object-fit:contain;cursor:zoom-in;user-select:none;-webkit-user-drag:none;border-radius:4px;background:#fff}'+
+ '.lb-stage.zoomed{cursor:grab}.lb-stage.zoomed img{max-width:none;max-height:none;cursor:zoom-out}'+
+ '.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:64px;font-size:30px!important;padding:0!important;line-height:1}'+
+ '.lb-prev{left:8px}.lb-next{right:8px}'+
+ 'img[data-lb]{cursor:zoom-in}'+
+ '@media print{.lb{display:none!important}}';
+ const st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
+ const lb=document.createElement('div');lb.className='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');
+ lb.innerHTML='<div class="lb-bar"><span class="lb-cap"></span><div class="lb-btns"><button type="button" data-a="zoom">🔍 Ampliar</button><button type="button" data-a="close">✕ Fechar</button></div></div><div class="lb-stage"><img alt="Evidência ampliada"></div><button type="button" class="lb-nav lb-prev" data-a="prev" aria-label="Anterior">‹</button><button type="button" class="lb-nav lb-next" data-a="next" aria-label="Próxima">›</button>';
+ document.body.appendChild(lb);
+ const stage=lb.querySelector('.lb-stage'),img=stage.querySelector('img'),cap=lb.querySelector('.lb-cap'),zb=lb.querySelector('[data-a=zoom]');
+ let list=[],idx=0,zoom=false,drag=null,moved=false,sx=null;
+ function setZoom(on,px,py){
+  if(px===undefined){px=.5;py=.5}
+  zoom=on;stage.classList.toggle('zoomed',on);zb.textContent=on?'↺ Ajustar à tela':'🔍 Ampliar';
+  if(on){const w=img.getBoundingClientRect().width;img.style.width=Math.round(Math.max(w*2.5,img.naturalWidth))+'px';stage.scrollLeft=img.offsetWidth*px-stage.clientWidth/2;stage.scrollTop=img.offsetHeight*py-stage.clientHeight/2}
+  else img.style.width='';
+ }
+ function show(i){
+  idx=(i+list.length)%list.length;setZoom(false);img.src=list[idx].src;
+  cap.textContent=(list.length>1?(idx+1)+' / '+list.length+' · ':'')+(list[idx].name||'Evidência');
+  lb.querySelectorAll('.lb-nav').forEach(b=>{b.style.display=list.length>1?'':'none'});
+ }
+ function open(el){
+  const g=el.dataset.lb,imgs=[...document.querySelectorAll('img[data-lb]')].filter(x=>x.dataset.lb===g);
+  list=imgs.map(x=>({src:x.currentSrc||x.src,name:x.dataset.name||x.alt}));
+  lb.classList.add('open');document.body.style.overflow='hidden';show(Math.max(0,imgs.indexOf(el)));
+ }
+ function close(){lb.classList.remove('open');document.body.style.overflow='';setZoom(false)}
+ document.addEventListener('click',e=>{const t=e.target.closest&&e.target.closest('img[data-lb]');if(t&&!lb.contains(t)){e.preventDefault();e.stopPropagation();open(t)}},true);
+ lb.addEventListener('click',e=>{
+  const btn=e.target.closest('[data-a]'),a=btn&&btn.dataset.a;
+  if(a==='close')return close();if(a==='prev')return show(idx-1);if(a==='next')return show(idx+1);if(a==='zoom')return setZoom(!zoom);
+  if(moved){moved=false;return}
+  if(e.target===img){const r=img.getBoundingClientRect();setZoom(!zoom,(e.clientX-r.left)/r.width,(e.clientY-r.top)/r.height)}
+  else if(e.target===stage&&!zoom)close();
+ });
+ document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();else if(e.key==='ArrowLeft'&&list.length>1)show(idx-1);else if(e.key==='ArrowRight'&&list.length>1)show(idx+1);else if(e.key==='+'||e.key==='-')setZoom(e.key==='+')});
+ stage.addEventListener('mousedown',e=>{if(!zoom||e.button!==0)return;drag={x:e.clientX,y:e.clientY,l:stage.scrollLeft,t:stage.scrollTop};moved=false;e.preventDefault()});
+ window.addEventListener('mousemove',e=>{if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>4)moved=true;stage.scrollLeft=drag.l-dx;stage.scrollTop=drag.t-dy});
+ window.addEventListener('mouseup',()=>{drag=null});
+ stage.addEventListener('touchstart',e=>{sx=(e.touches.length===1&&!zoom)?e.touches[0].clientX:null},{passive:true});
+ stage.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;sx=null;if(Math.abs(dx)>50&&list.length>1)show(idx+(dx<0?1:-1))});
+}
+
+const $=id=>document.getElementById(id);
+const STORAGE_KEY='simoldes_occurrences_v1';
+let records=loadRecords(), pendingImages=[], githubToken='', githubConfig=null;
+/* Setores sugeridos por área (a pessoa também pode digitar outro; setores já usados entram nas sugestões) */
+const SECTORS={
+ 'Produção':['Injeção','Montagem','Pintura','Qualidade'],
+ 'Logística':['Recebimento','Expedição','Estoque','Inventário','Movimentação interna']
+};
+function loadRecords(){
+ let list;try{list=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]')}catch{return []}
+ /* Converte registros antigos para as novas áreas */
+ return list.map(r=>{
+  if(['Recebimento','Expedição','Estoque'].includes(r.area))return {...r,area:'Logística',sector:r.sector||r.area};
+  if(r.sector==='Estoque / Armazenagem')return {...r,sector:'Estoque'};
+  if(r.area==='Fiscal / NF'||r.area==='Fiscal')return {...r,area:'Outro',sector:''};
+  return r;
+ });
+}
+function areaLabel(r){return r.sector?r.area+' › '+r.sector:r.area}
+/* Tipos de ocorrência por área (Manutenção tem lista própria) */
+const DEFAULT_TYPES=['Erro no sistema','Melhoria sugerida','Dúvida operacional','Acesso / permissão','Desempenho'];
+const TYPES={'Manutenção':['Conserto','Melhoria']};
+function updateType(keepValue){
+ const sel=$('type'),list=[...(TYPES[$('area').value]||DEFAULT_TYPES)];
+ if(keepValue&&!list.includes(keepValue))list.push(keepValue);
+ sel.innerHTML=list.map(t=>`<option>${escapeHTML(t)}</option>`).join('');
+ if(keepValue)sel.value=keepValue;
+}
+/* Quais listas de setores cada área usa (Manutenção atende Produção e Logística) */
+const SECTOR_AREAS={'Produção':['Produção'],'Logística':['Logística'],'Manutenção':['Produção','Logística']};
+const SECTOR_LABELS={'Produção':'Setor da produção','Logística':'Setor da logística','Manutenção':'Setor atendido pela manutenção'};
+function sectorOptions(list){return list.map(s=>`<option value="${escapeHTML(s)}">${escapeHTML(s)}</option>`).join('')}
+function updateSector(){
+ const a=$('area').value,f=$('sectorField'),sel=$('sector'),groups=SECTOR_AREAS[a];
+ if(groups){
+  f.classList.remove('hidden');sel.required=true;
+  $('sectorLabel').textContent=SECTOR_LABELS[a]+' *';
+  const opts=groups.length===1?sectorOptions(SECTORS[a]):groups.map(g=>`<optgroup label="${escapeHTML(g)}">${sectorOptions(SECTORS[g])}</optgroup>`).join('');
+  sel.innerHTML='<option value="">Selecione o setor</option>'+opts;
+ }else{f.classList.add('hidden');sel.required=false;sel.innerHTML=''}
+}
+function getSector(){return $('sector').value}
+/* Ao editar um registro antigo com setor que saiu da lista, mantém o valor dele */
+function setSector(v){const sel=$('sector');if(v&&![...sel.options].some(o=>o.value===v))sel.insertAdjacentHTML('beforeend',sectorOptions([v]));sel.value=v||''}
+function persist(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(records));return true}catch(e){toast('O armazenamento local está cheio. Exporte os registros e reduza as imagens.');return false}}
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.remove('hidden');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.add('hidden'),3000)}
+function uid(){return 'OC-'+new Date().getFullYear()+'-'+Math.random().toString(36).slice(2,8).toUpperCase()}
+function escapeHTML(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function dateFmt(d){return new Date(d).toLocaleString('pt-BR',{dateStyle:'short',timeStyle:'short'})}
+function priorityClass(p){return ({'Crítica':'p-critica','Alta':'p-alta','Média':'p-media','Baixa':'p-baixa'})[p]||'p-media'}
+function statusClass(s){return ({'Aberto':'p-aberto','Em andamento':'p-andamento','Resolvido':'p-resolvido'})[s]||'p-aberto'}
+function render(){
+ $('statTotal').textContent=records.length;$('statOpen').textContent=records.filter(r=>r.status==='Aberto').length;$('statProgress').textContent=records.filter(r=>r.status==='Em andamento').length;$('statDone').textContent=records.filter(r=>r.status==='Resolvido').length;
+ const q=$('search').value.toLowerCase(), st=$('filterStatus').value, pr=$('filterPriority').value;
+ const filtered=records.filter(r=>(!q||[r.id,r.title,r.description,r.area,r.sector||'',r.type].join(' ').toLowerCase().includes(q))&&(!st||r.status===st)&&(!pr||r.priority===pr)).sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt));
+ $('resultCount').textContent=`${filtered.length} ${filtered.length===1?'registro':'registros'}`;
+ if(!filtered.length){$('occurrences').innerHTML='<div class="empty"><b>Nenhuma ocorrência encontrada</b>Crie seu primeiro registro pelo formulário ou ajuste os filtros.</div>';return}
+ $('occurrences').innerHTML=filtered.map(r=>`<article class="occurrence"><div class="occ-top"><div><p class="occ-title">${escapeHTML(r.title)}</p><div class="meta"><span>${escapeHTML(r.id)}</span><span>•</span><span>${escapeHTML(areaLabel(r))}</span><span>•</span><span>${dateFmt(r.createdAt)}</span></div></div><div style="display:flex;gap:5px;flex-wrap:wrap"><span class="pill ${priorityClass(r.priority)}">${escapeHTML(r.priority)}</span><span class="pill ${statusClass(r.status)}">${escapeHTML(r.status)}</span></div></div><div class="occ-desc">${escapeHTML(r.description)}</div>${r.steps?`<details style="margin:0 0 12px;font-size:12px"><summary style="cursor:pointer;font-weight:750">Passos para reproduzir</summary><p class="occ-desc">${escapeHTML(r.steps)}</p></details>`:''}${r.images?.length?`<div class="thumbs">${r.images.map((im,i)=>`<img src="${im.data}" alt="Evidência ${i+1}" data-lb="${escapeHTML(r.id)}" data-name="${escapeHTML(im.name||'Evidência '+(i+1))}" title="Clique para ampliar">`).join('')}</div>`:''}<div class="occ-footer"><span class="meta">${escapeHTML(r.type)}${r.updatedAt!==r.createdAt?' · Atualizado '+dateFmt(r.updatedAt):''}</span><div class="occ-actions"><button class="small-btn" data-edit="${r.id}">Editar</button><button class="small-btn" data-status="${r.id}">Mudar status</button><button class="small-btn" data-export="${r.id}">Exportar</button><button class="small-btn" data-delete="${r.id}" style="color:#b42323">Excluir</button></div></div></article>`).join('');
+}
+$('occurrences').addEventListener('click',e=>{
+ const el=e.target.closest('button');if(!el)return;
+ if(el.dataset.edit)editRecord(el.dataset.edit);
+ if(el.dataset.delete){if(confirm('Excluir esta ocorrência?')){records=records.filter(r=>r.id!==el.dataset.delete);persist();render();toast('Ocorrência excluída.')}} 
+ if(el.dataset.status){const r=records.find(x=>x.id===el.dataset.status);if(r){r.status=({'Aberto':'Em andamento','Em andamento':'Resolvido','Resolvido':'Aberto'})[r.status];r.updatedAt=new Date().toISOString();persist();render();toast('Status atualizado.')}} 
+ if(el.dataset.export){const r=records.find(x=>x.id===el.dataset.export);if(r)downloadReport([r],`ocorrencia-${r.id}.html`)}
+});
+$('search').addEventListener('input',render);$('filterStatus').addEventListener('change',render);$('filterPriority').addEventListener('change',render);
+$('evidence').addEventListener('change',async e=>{const files=[...e.target.files];for(const f of files){if(!f.type.startsWith('image/'))continue;try{const data=await resizeImage(f);pendingImages.push({name:f.name,data});}catch{toast('Não foi possível carregar uma das imagens.')}}showPreview()});
+function resizeImage(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=reject;reader.onload=()=>{const img=new Image();img.onerror=reject;img.onload=()=>{const max=1200,scale=Math.min(1,max/Math.max(img.width,img.height)),c=document.createElement('canvas');c.width=Math.round(img.width*scale);c.height=Math.round(img.height*scale);c.getContext('2d').drawImage(img,0,0,c.width,c.height);resolve(c.toDataURL('image/jpeg',.78))};img.src=reader.result};reader.readAsDataURL(file)})}
+function showPreview(){$('preview').innerHTML=pendingImages.map((im,i)=>`<img src="${im.data}" title="${escapeHTML(im.name)}" data-remove="${i}">`).join('');}
+$('preview').addEventListener('click',e=>{const i=e.target.dataset.remove;if(i!==undefined){pendingImages.splice(+i,1);showPreview()}});
+$('occForm').addEventListener('submit',e=>{e.preventDefault();const id=$('editId').value,old=records.find(r=>r.id===id),now=new Date().toISOString();const record={id:id||uid(),title:$('title').value.trim(),area:$('area').value,sector:SECTOR_AREAS[$('area').value]?getSector():'',type:$('type').value,priority:$('priority').value,status:$('status').value,description:$('description').value.trim(),steps:$('steps').value.trim(),images:[...(old?.images||[]),...pendingImages],createdAt:old?.createdAt||now,updatedAt:now};if(old)records=records.map(r=>r.id===id?record:r);else records.push(record);if(!persist())return;resetForm();render();toast(old?'Ocorrência atualizada.':'Ocorrência salva neste navegador.');if(githubToken&&githubConfig)toast('Salvo localmente. Clique em “Sincronizar agora” para enviar ao GitHub.')});
+function editRecord(id){const r=records.find(x=>x.id===id);if(!r)return;$('editId').value=r.id;$('title').value=r.title;$('area').value=r.area;updateSector();setSector(r.sector||'');updateType(r.type);$('type').value=r.type;$('priority').value=r.priority;$('status').value=r.status;$('description').value=r.description;$('steps').value=r.steps||'';pendingImages=[];$('preview').innerHTML=(r.images||[]).map((im,i)=>`<img src="${im.data}" title="${escapeHTML(im.name||'Imagem')}" data-existing="${i}">`).join('');$('formHeading').textContent='✎ Editar ocorrência';$('saveBtn').textContent='Salvar alterações';$('cancelEdit').classList.remove('hidden');document.querySelector('.layout').scrollIntoView({behavior:'smooth'});$('preview').onclick=e=>{const i=e.target.dataset.remove;if(i!==undefined){pendingImages.splice(+i,1);showPreview()}const ex=e.target.dataset.existing;if(ex!==undefined){const images=records.find(x=>x.id===$('editId').value).images;images.splice(+ex,1);$('preview').innerHTML=images.map((im,j)=>`<img src="${im.data}" title="${escapeHTML(im.name||'Imagem')}" data-existing="${j}">`).join('')}}}
+function resetForm(){$('occForm').reset();updateSector();updateType();$('editId').value='';pendingImages=[];$('preview').innerHTML='';$('formHeading').textContent='＋ Nova ocorrência';$('saveBtn').textContent='Salvar ocorrência';$('cancelEdit').classList.add('hidden');$('preview').onclick=e=>{const i=e.target.dataset.remove;if(i!==undefined){pendingImages.splice(+i,1);showPreview()}}}
+$('cancelEdit').addEventListener('click',resetForm);
+$('area').addEventListener('change',()=>{updateSector();updateType()});
+function reportHTML(data){
+const body=data.map(r=>`<article class="item"><header><div><h2>${escapeHTML(r.title)}</h2><div class="meta">${escapeHTML(r.id)} · ${dateFmt(r.createdAt)} · ${escapeHTML(areaLabel(r))} · ${escapeHTML(r.type)}</div></div><div><span class="pill">${escapeHTML(r.status)}</span> <span class="pill">${escapeHTML(r.priority)}</span></div></header><p>${escapeHTML(r.description).replace(/\n/g,'<br>')}</p>${r.steps?`<h3>Passos para reproduzir</h3><p>${escapeHTML(r.steps).replace(/\n/g,'<br>')}</p>`:''}${r.images?.length?`<h3>Evidências (${r.images.length}) <span class="hint">· clique na imagem para ampliar</span></h3><div class="imgs">${r.images.map((im,i)=>`<figure><img src="${im.data}" alt="Evidência ${i+1}" data-lb="${escapeHTML(r.id)}" data-name="${escapeHTML(im.name||'Evidência '+(i+1))}" title="Clique para ampliar"><figcaption>${escapeHTML(im.name||'Captura de tela')}</figcaption></figure>`).join('')}</div>`:''}</article>`).join('');
+return `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Relatório de ocorrências · Simoldes</title><style>*{box-sizing:border-box}body{margin:0;background:#f3f6fb;color:#1e293b;font:14px/1.6 Arial,sans-serif}.wrap{max-width:1000px;margin:32px auto;padding:0 20px}.hero{background:#14243a;color:white;padding:28px;border-radius:16px}.hero h1{margin:0;font-size:26px}.hero p{color:#d3ddeb;margin:6px 0 0}.summary{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.summary span{background:white;border:1px solid #dfe6ef;border-radius:10px;padding:10px 14px}.item{background:white;border:1px solid #dfe6ef;border-radius:14px;padding:20px;margin:14px 0;break-inside:avoid}.item header{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.item h2{font-size:18px;margin:0 0 5px}.meta{font-size:11px;color:#64748b}.pill{display:inline-block;background:#eaf1fc;padding:4px 8px;border-radius:20px;font-size:10px;font-weight:bold}.item p{overflow-wrap:anywhere}.hint{font-size:11px;font-weight:normal;color:#64748b}.imgs{display:flex;gap:12px;flex-wrap:wrap}.imgs figure{margin:0;width:min(260px,100%)}.imgs img{width:100%;height:auto;max-height:300px;object-fit:contain;border:1px solid #dfe6ef;border-radius:8px;cursor:zoom-in;transition:box-shadow .15s}.imgs img:hover{box-shadow:0 4px 14px rgba(20,36,58,.18)}.imgs figcaption{font-size:11px;color:#64748b;margin-top:4px}.foot{color:#748196;font-size:11px;margin:24px 0}@media print{body{background:white}.wrap{margin:0 auto}.hero{background:#14243a!important;color:white!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.item{box-shadow:none}.hint{display:none}button{display:none}}</style></head><body><main class="wrap"><section class="hero"><h1>Simoldes · Relatório de ocorrências</h1><p>Registro organizado de falhas, evidências e sugestões de melhoria</p></section><div class="summary"><span><b>${data.length}</b> ocorrência(s)</span><span>Gerado em <b>${new Date().toLocaleString('pt-BR')}</b></span></div>${body||'<p>Nenhuma ocorrência registrada.</p>'}<div class="foot">Relatório exportado do protótipo de registro de ocorrências. Verifique se o conteúdo pode ser compartilhado antes de encaminhá-lo.</div></main><script>(${installLightbox.toString()})();<\/script></body></html>`;
+}
+function downloadReport(data,filename){const blob=new Blob([reportHTML(data)],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Relatório HTML exportado.')}
+$('exportBtn').addEventListener('click',()=>{if(!records.length){toast('Ainda não há ocorrências para exportar.');return}downloadReport([...records].sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt)),'relatorio-ocorrencias-simoldes.html')});
+$('githubOpen').addEventListener('click',()=>{$('githubModal').style.display='flex';$('ghOwner').value=githubConfig?.owner||'';$('ghRepo').value=githubConfig?.repo||'';$('ghBranch').value=githubConfig?.branch||'main';$('ghToken').value=githubToken});
+$('closeGithub').addEventListener('click',()=> $('githubModal').style.display='none');$('githubModal').addEventListener('click',e=>{if(e.target===$('githubModal'))$('githubModal').style.display='none'});
+$('ghDisconnect').addEventListener('click',()=>{githubToken='';githubConfig=null;$('ghToken').value='';$('ghStatus').textContent='Desconectado. Os registros locais permanecem neste navegador.';$('ghStatus').className='github-status';$('storageLabel').textContent='Salvamento neste navegador'});
+async function ghRequest(path,opts={}){const res=await fetch('https://api.github.com'+path,{...opts,headers:{'Accept':'application/vnd.github+json','Authorization':'Bearer '+githubToken,'X-GitHub-Api-Version':'2022-11-28',...(opts.headers||{})}});let data={};try{data=await res.json()}catch{}if(!res.ok)throw new Error(data.message||`Erro GitHub (${res.status})`);return data}
+async function putFile(path,content,message){let sha;try{const old=await ghRequest(`/repos/${githubConfig.owner}/${githubConfig.repo}/contents/${path}?ref=${encodeURIComponent(githubConfig.branch)}`);sha=old.sha}catch(e){if(!String(e.message).includes('Not Found'))throw e}return ghRequest(`/repos/${githubConfig.owner}/${githubConfig.repo}/contents/${path}`,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({message,content,branch:githubConfig.branch,...(sha?{sha}:{})})})}
+$('ghSync').addEventListener('click',async()=>{const owner=$('ghOwner').value.trim(),repo=$('ghRepo').value.trim(),branch=$('ghBranch').value.trim()||'main',token=$('ghToken').value.trim();if(!owner||!repo||!token){$('ghStatus').textContent='Preencha usuário/organização, repositório e token.';$('ghStatus').className='github-status err';return}githubConfig={owner,repo,branch};githubToken=token;$('ghSync').disabled=true;$('ghSync').textContent='Sincronizando…';$('ghStatus').textContent='Validando acesso ao repositório…';$('ghStatus').className='github-status';try{await ghRequest(`/repos/${owner}/${repo}`);let uploaded=0;for(const r of records){for(let i=0;i<(r.images||[]).length;i++){const im=r.images[i];if(!im.data||!im.data.startsWith('data:'))continue;const path=`evidencias/${r.id}-${i+1}.jpg`;const base64=im.data.split(',')[1];await putFile(path,base64,`Atualiza evidência ${r.id}`);im.githubPath=path;uploaded++}}await putFile('ocorrencias.json',btoa(unescape(encodeURIComponent(JSON.stringify({updatedAt:new Date().toISOString(),records},null,2)))),'Atualiza registros de ocorrências');persist();$('ghStatus').textContent=`Sincronização concluída: ${records.length} ocorrência(s), ${uploaded} imagem(ns). Arquivo ocorrencias.json atualizado.`;$('ghStatus').className='github-status ok';$('storageLabel').textContent='Sincronizado com GitHub';toast('Sincronização concluída.')}catch(err){$('ghStatus').textContent='Não foi possível sincronizar: '+err.message;$('ghStatus').className='github-status err'}finally{$('ghSync').disabled=false;$('ghSync').textContent='Sincronizar agora'}});
+installLightbox();
+updateSector();
+updateType();
+render();
+</script>
+</body></html>
